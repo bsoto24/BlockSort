@@ -1,15 +1,15 @@
-package com.openlab.blocksort.activity;
+package com.openlab.blocksort.presentation.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.openlab.blocksort.database.LocalData;
+import com.openlab.blocksort.data.local.database.LocalData;
 import com.openlab.blocksort.R;
-import com.openlab.blocksort.database.SQLiteManager;
-import com.openlab.blocksort.session.SessionManager;
-import com.openlab.blocksort.adapter.BlockAdapter;
+import com.openlab.blocksort.data.local.database.SQLiteManager;
+import com.openlab.blocksort.data.local.session.SessionManager;
+import com.openlab.blocksort.presentation.adapter.BlockAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         /*Inicializa los datos de los bloques*/
         if (!sessionMananger.isLoadData()) {
             sessionMananger.setLoadData(true);
-            LocalData.load(this);
+            LocalData.loadBlocks(this);
         }
 
         db = new SQLiteManager(this);

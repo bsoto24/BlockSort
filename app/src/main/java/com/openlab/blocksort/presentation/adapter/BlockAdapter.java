@@ -1,21 +1,20 @@
-package com.openlab.blocksort.adapter;
+package com.openlab.blocksort.presentation.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.openlab.blocksort.model.Block;
-import com.openlab.blocksort.activity.BlockActivity;
+import com.openlab.blocksort.data.entities.Block;
+import com.openlab.blocksort.data.local.database.SQLiteManager;
+import com.openlab.blocksort.presentation.activity.BlockActivity;
 import com.openlab.blocksort.R;
-import com.openlab.blocksort.database.SQLiteManager;
-import com.openlab.blocksort.session.SessionManager;
+import com.openlab.blocksort.data.local.session.SessionManager;
+import com.openlab.blocksort.util.ActivityUtils;
 
 import java.util.ArrayList;
 
@@ -25,7 +24,6 @@ import java.util.ArrayList;
 
 public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
 
-    private final String TAG = getClass().getSimpleName();
     private ArrayList<Block> blocks;
     private Activity activity;
     private int LAST_USE;
@@ -71,15 +69,12 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
                 la funcion de ordenamiento cuando vuelva a abrir la aplicación*/
                 if (block.getClicks() >= 3){
                     SessionManager.getInstance(activity).setTimeToSort(true);
-                    Log.e(TAG, "Ordenamiento activado");
                 }
 
                 /*Inicia la otra actividad pasando como parámetro el bloque*/
-                Intent intent = new Intent(activity, BlockActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("block", block);
-                intent.putExtras(bundle);
-                activity.startActivity(intent);
+                ActivityUtils.nextActivity(activity, bundle, BlockActivity.class, false);
 
                 /*Inicia la animación de transicion*/
                 activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

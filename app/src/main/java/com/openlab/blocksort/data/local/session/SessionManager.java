@@ -1,4 +1,4 @@
-package com.openlab.blocksort.session;
+package com.openlab.blocksort.data.local.session;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 
 public class SessionManager {
 
-    private static final String PREFERENCE_NAME = "piruw_preference";
+    private static final String PREFERENCE_NAME = "blocksort_preference";
     private int PRIVATE_MODE = 0;
 
     private SharedPreferences preferences;

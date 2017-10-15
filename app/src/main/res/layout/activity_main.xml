@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:activity="com.openlab.blocksort.activity.MainActivity">
+    tools:activity="com.openlab.blocksort.presentation.activity.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_blocks"

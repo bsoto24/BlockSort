@@ -1,4 +1,4 @@
-package com.openlab.blocksort.activity;
+package com.openlab.blocksort.presentation.activity;
 
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.LinearLayout;
 
-import com.openlab.blocksort.model.Block;
+import com.openlab.blocksort.data.entities.Block;
 import com.openlab.blocksort.R;
 
 public class BlockActivity extends AppCompatActivity {
@@ -18,7 +18,9 @@ public class BlockActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_block);
+
         showToolbar("", true);
+
         lyBlock = (LinearLayout) findViewById(R.id.ly_block);
 
         /*Recibe el bloque que fue pasado como parámetro para pintar la pantalla con su color*/

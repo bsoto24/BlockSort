@@ -1,9 +1,9 @@
-package com.openlab.blocksort.database;
+package com.openlab.blocksort.data.local.database;
 
 import android.content.Context;
 
 import com.openlab.blocksort.R;
-import com.openlab.blocksort.model.Block;
+import com.openlab.blocksort.data.entities.Block;
 
 /**
  * Created by Bryam Soto on 13/10/2017.
@@ -17,7 +17,7 @@ public class LocalData {
      * Inicializa los datos
      * @param context
      */
-    public static void load(Context context) {
+    public static void loadBlocks(Context context) {
 
         db = new SQLiteManager(context);
 

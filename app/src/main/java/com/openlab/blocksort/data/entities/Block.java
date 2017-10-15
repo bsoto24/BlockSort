@@ -1,4 +1,4 @@
-package com.openlab.blocksort.model;
+package com.openlab.blocksort.data.entities;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ public class Block implements Serializable {
     private int color;      //color del bloque
     private int clicks;     //variable que indica el numero de toques dados en el bloque
     private int lastUse;    //vriable que indica el orden del último bloque tocado
-    private int position;  //variable que indica la posición el que se encuentra el bloque
+    private int position;   //variable que indica la posición el que se encuentra el bloque
 
 
     public Block(int id, int color) {
