@@ -16,6 +16,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                     "ID INTEGER PRIMARY KEY, " +
                     "COLOR INTEGER, " +
                     "CLICKS INTEGER, " +
+                    "LAST_USE INTEGER, " +
                     "POSITION INTEGER)";
 
     public SQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

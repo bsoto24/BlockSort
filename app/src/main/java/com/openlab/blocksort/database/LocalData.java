@@ -21,9 +21,9 @@ public class LocalData {
 
         db = new SQLiteManager(context);
 
-        db.insertBlock(new Block(1, R.color.red, 0, 0));
-        db.insertBlock(new Block(2, R.color.blue, 0, 0));
-        db.insertBlock(new Block(3, R.color.green, 0, 0));
+        db.insertBlock(new Block(1, R.color.red, 0, 0, 1));
+        db.insertBlock(new Block(2, R.color.blue, 0, 0, 2));
+        db.insertBlock(new Block(3, R.color.green, 0, 0, 3));
 
     }
 }

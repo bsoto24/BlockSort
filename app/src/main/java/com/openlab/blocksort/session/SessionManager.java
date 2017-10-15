@@ -19,9 +19,10 @@ public class SessionManager {
 
     public static final String LOAD_DATA = "loadData";      //Verifica si la informacion ha sido cargada
     public static final String TIME_TO_SORT = "timeToSort"; //Verifica si la funcionalidad de ordeaniemto ha sido activada
+    public static final String LAST_USE = "lastUse";        //Valor que indica el ultimo elemento usado
 
-    public static SessionManager getInstance(Context context){
-        if(sessionManager == null){
+    public static SessionManager getInstance(Context context) {
+        if (sessionManager == null) {
             sessionManager = new SessionManager(context);
         }
         return sessionManager;
@@ -33,12 +34,12 @@ public class SessionManager {
         editor = preferences.edit();
     }
 
-    public void setTimeToSort(boolean timeToSort){
+    public void setTimeToSort(boolean timeToSort) {
         editor.putBoolean(TIME_TO_SORT, timeToSort);
         editor.commit();
     }
 
-    public boolean isTimeToSort(){
+    public boolean isTimeToSort() {
         return preferences.getBoolean(TIME_TO_SORT, false);
     }
 
@@ -49,5 +50,14 @@ public class SessionManager {
 
     public boolean isLoadData() {
         return preferences.getBoolean(LOAD_DATA, false);
+    }
+
+    public void setLastUse(int lastUse) {
+        editor.putInt(LAST_USE, lastUse);
+        editor.commit();
+    }
+
+    public int getLastUse() {
+        return preferences.getInt(LAST_USE, 0);
     }
 }

@@ -25,15 +25,17 @@ import java.util.ArrayList;
 
 public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
 
+    private final String TAG = getClass().getSimpleName();
     private ArrayList<Block> blocks;
     private Activity activity;
-    private int POS = 0;
+    private int LAST_USE;
     private SQLiteManager db;
 
     public BlockAdapter(ArrayList<Block> blocks, Activity activity) {
         this.blocks = blocks;
         this.activity = activity;
         db = new SQLiteManager(activity);
+        LAST_USE = SessionManager.getInstance(activity).getLastUse();
     }
 
     @Override
@@ -55,7 +57,9 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
 
                 /*Actualiza los valores de los clicks y la ultima posicion*/
                 block.setClicks(block.getClicks() + 1);
-                block.setPosition(++POS);
+                LAST_USE += 1;
+                SessionManager.getInstance(activity).setLastUse(LAST_USE);
+                block.setLastUse(LAST_USE);
 
                 /*Muestra el valor*/
                 holder.tvClicks.setText(Integer.toString(block.getClicks()));
@@ -67,6 +71,7 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
                 la funcion de ordenamiento cuando vuelva a abrir la aplicación*/
                 if (block.getClicks() >= 3){
                     SessionManager.getInstance(activity).setTimeToSort(true);
+                    Log.e(TAG, "Ordenamiento activado");
                 }
 
                 /*Inicia la otra actividad pasando como parámetro el bloque*/
@@ -79,7 +84,6 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
                 /*Inicia la animación de transicion*/
                 activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                Log.e("Block: ", block.toString());
             }
         });
 

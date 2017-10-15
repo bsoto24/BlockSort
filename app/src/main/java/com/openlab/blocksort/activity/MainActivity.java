@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         rvBlocks = (RecyclerView) findViewById(R.id.rv_blocks);
         rvBlocks.setLayoutManager(new LinearLayoutManager(this));
         /*Configuracion del adaptador, pasando como parametro la lista de bloques registrados en la db*/
-        rvBlocks.setAdapter(new BlockAdapter(db.getBlock(), this));
+        rvBlocks.setAdapter(new BlockAdapter(db.getBlocks(), this));
     }
 
 }
