@@ -11,7 +11,7 @@ import com.openlab.blocksort.data.local.database.SQLiteManager;
 import com.openlab.blocksort.data.local.session.SessionManager;
 import com.openlab.blocksort.presentation.adapter.BlockAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity1 extends AppCompatActivity {
 
     private RecyclerView rvBlocks;
     private SessionManager sessionMananger;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_1);
 
         sessionMananger = SessionManager.getInstance(this);
 

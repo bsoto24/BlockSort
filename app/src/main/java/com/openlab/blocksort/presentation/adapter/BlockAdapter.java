@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.openlab.blocksort.data.entities.Block;
 import com.openlab.blocksort.data.local.database.SQLiteManager;
-import com.openlab.blocksort.presentation.activity.BlockActivity;
+import com.openlab.blocksort.presentation.activity.Activity2;
 import com.openlab.blocksort.R;
 import com.openlab.blocksort.data.local.session.SessionManager;
 import com.openlab.blocksort.util.ActivityUtils;
@@ -74,7 +74,7 @@ public class BlockAdapter extends RecyclerView.Adapter<BlockAdapter.BlockVH> {
                 /*Inicia la otra actividad pasando como parámetro el bloque*/
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("block", block);
-                ActivityUtils.nextActivity(activity, bundle, BlockActivity.class, false);
+                ActivityUtils.nextActivity(activity, bundle, Activity2.class, false);
 
                 /*Inicia la animación de transicion*/
                 activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

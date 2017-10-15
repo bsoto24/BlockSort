@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.openlab.blocksort.data.entities.Block;
 import com.openlab.blocksort.R;
 
-public class BlockActivity extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity {
 
     private Block block;
     private LinearLayout lyBlock;
@@ -17,7 +17,7 @@ public class BlockActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_block);
+        setContentView(R.layout.activity_2);
 
         showToolbar("", true);
 
